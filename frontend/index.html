@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            billing details
+        </title>
+         
+    
+    </head>
+    <body>
+            <pre>             
+                
+                
+            Product Details</pre>
+            <form action='/billing' method="POST">
+                      
+           <pre>         Product Name: <input type="text" name="p_name">
+
+         product Id:   <input type="text" name="p_id">
+
+         Quantity:     <input type="text" name="quality" id="qua">
+
+         Price:        <input type="text" name="price" id="pr">
+
+GST:        <select name="gst" id="gst1">
+                              <option value="5">5%</option>
+                              <option value="12">12%</option>
+                              <option value="18">18%</option>
+                              <option value="28">28%</option>
+                              </select>
+                                   
+                                   <input type="text" id="amt" name="Amount" style="display: none;">
+                        <input type="submit" value="generate bill">
+                            
+            </pre> 
+            </form>
+    <style>
+    body{
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+    input[type="submit"]
+    {
+        font-size:15px;
+        width:10%;
+    }
+    </style>
+    <script>
+            var amount = document.getElementById('pr');
+             amount.addEventListener("input", function (event) {
+                 var quantity = document.getElementById('qua').value;
+                 var price = document.getElementById('pr').value;
+                 var interest = (document.getElementById('gst1').value)/100;
+                 var inte = price * interest; 
+                 var total = parseInt(inte)+parseInt(price);
+                quantity*=total; 
+              document.getElementById('amt').value = quantity;
+             });
+             
+            </script>
+    </body>
+</html>
